@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +8,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- SECCIÓN DE MÚSICA -->
+    <section class="musica">
+    <audio id="musica-fondo" loop>
+        <source src="sonido.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <button id="btn-musica">Reproducir música</button>
+    </section>
+
+    <!-- HEADER PRINCIPAL -->
     <header class="header">
 
         <div class="menu container">
@@ -22,10 +31,10 @@
             </label>
             <nav class="navbar">
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="Contacto">Contactos</a></li>
+                    <li><a href="#Inicio">Inicio</a></li>
+                    <li><a href="#Informacion">Informacion</a></li>
+                    <li><a href="#Nuestro equipo">Nuestro equipo</a></li>
+                    <li><a href="#Contacto">Contactos</a></li>
                 </ul>
             </nav>
         </div>
@@ -39,17 +48,19 @@
             </div>
         </div>
     </header>  
-
-    <section class="general container reveal">
+    
+    <!-- SECCIÓN INICIO -->
+    <section class="general container reveal" id="Inicio">
         <h2>Experiencia Everest</h2>
 
         <div class="general-content">
             <div class ="general-1 txt">
                 <h3>Trekking de Aclimatación</h3>
                 <p>
-                Iniciaremos una caminata de aclimatación desde Lukla hasta Namche Bazaar. 
-                Durante el trayecto, los viajeros se adaptarán gradualmente a la altura, 
-                mientras disfrutan de paisajes únicos del Himalaya y de la hospitalidad sherpa.
+                Iniciaremos una caminata de aclimatación desde Lukla hasta 
+                Namche Bazaar. Durante el trayecto, los viajeros se 
+                adaptarán gradualmente a la altura, mientras disfrutan de
+                paisajes únicos.
                 </p>
             </div>
             <div class ="general-2 txt">
@@ -69,38 +80,39 @@
         </div>
     </section>
 
-    <section class="info-1 reveal">
+    <!-- INFORMACIÓN -->
+    <section class="info-1 reveal" id="Informacion">
         <div class="info-content container">
 
             <h2>Informacion</h2>
 
-            <div class="info-circle">
-                <div class="circle-txt" >
-                    <div class="circle-1">
+            <div class="info-circulo ">
+                <div class="circulo-txt" >
+                    <div class="circulo-1">
                         <h3>8000 M</h3>
                     </div>
                     <p>
                         8.849 m
                     </p>
                 </div>
-                <div class="circle-txt" >
-                    <div class="circle-1">
+                <div class="circulo-txt" >
+                    <div class="circulo-1">
                         <h3>6.5 %</h3>
                     </div>
                     <p>
                         6.5 % tasa de éxito
                     </p>
                 </div>
-                <div class="circle-txt" >
-                    <div class="circle-1">
+                <div class="circulo-txt" >
+                    <div class="circulo-1">
                         <h3>-35 C</h2>
                     </div>
                     <p>
                         -35 °C promedio
                     </p>
                 </div>
-                <div class="circle-txt" >
-                    <div class="circle-1">
+                <div class="circulo-txt" >
+                    <div class="circulo-1">
                         <h3>8H</h3>
                     </div>
                     <p>
@@ -112,8 +124,8 @@
 
     </section>
 
-
-    <section class="general g2 container reveal">
+    <!-- EQUIPO -->
+    <section class="general g2 container reveal" id="Nuestro equipo">
         <h2>Nuestro equipo</h2>
 
         <div class="general-content">
@@ -144,6 +156,7 @@
         </div>
     </section>
 
+    <!-- TESTIMONIOS -->
     <section class="info-2 reveal">
         <div class="info-content container">
 
@@ -186,6 +199,7 @@
 
     </section>
 
+    <!-- VIDEO PROMOCIONAL -->
     <section class="video-section reveal">
     <div class="video-container container">
         <h2>Video Promocional</h2>
@@ -199,7 +213,8 @@
     </section>
 
 
-    <footer class="footer container reveal">
+    <!-- CONTACTO -->
+    <footer class="footer container reveal" id="Contacto">
         <h2>Contacto</h2>
         <form>
             <input class="campo" type="text" placeholder="Nombre">
@@ -216,6 +231,7 @@
 
     </footer>
 
+<!-- ANIMACIÓN SCROLL -->
 <script>
   window.addEventListener("scroll", function() {
     let reveals = document.querySelectorAll(".reveal");
@@ -235,7 +251,6 @@
 </script>
 
 <script>
-  // Efecto reveal al hacer scroll
   function reveal() {
     const reveals = document.querySelectorAll(".reveal");
 
@@ -253,8 +268,25 @@
   }
 
   window.addEventListener("scroll", reveal);
-  reveal(); // Para activar los que ya están visibles al cargar
+  reveal();
+</script>
+
+<!-- CONTROL DE LA MÚSICA -->
+<script>
+  const musica = document.getElementById("musica-fondo");
+  const botonMusica = document.getElementById("btn-musica");
+
+  botonMusica.addEventListener("click", function() {
+    if (musica.paused) {
+      musica.play();
+      botonMusica.textContent = "Pausar música";
+    } else {
+      musica.pause();
+      botonMusica.textContent = "Reproducir música";
+    }
+  });
 </script>
 
 </body>
+
 </html>
